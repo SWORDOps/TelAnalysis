@@ -9,3 +9,4 @@ phonenumbers
 validate_email
 pandas
 vaderSentiment
+requests
