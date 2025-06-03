@@ -7,53 +7,70 @@
 
 # TelAnalysis
 
-## Описание
+## Description
 
-TelAnalysis — это инструмент для анализа сообщений в Telegram-чатах, группах и каналах. Он помогает извлекать текст, выявлять ключевые слова, а также анализировать эмоции и извлекать контактную информацию, такую как email и номера телефонов.
+TelAnalysis is a tool for analyzing messages in Telegram chats, groups, and channels. It helps extract text, identify keywords, perform sentiment analysis (calculating a compound positive/negative/neutral score for messages), and extract contact information such as email addresses and phone numbers.
 
-## Новые функции и улучшения
+## New Features and Improvements
 
-1. **Анализ эмоций**:
-   - Добавлен анализ эмоций для каждого сообщения, выводимый рядом с текстом.
-   - Среднее значение эмоций для каждого пользователя, отображаемое над списком топ-слов.
-   - Общий анализ эмоций для всех сообщений в чате (или канале).
+1.  **Sentiment Analysis**:
+    *   Performs sentiment analysis for each message, displaying a compound score (ranging from -1, most negative, to +1, most positive).
+    *   Calculates and displays the average sentiment score for each user.
+    *   Provides an overall average sentiment score for all messages in the analyzed chat or channel.
 
-2. **Улучшение обработки сообщений**:
-   - Исправлены ошибки в вычислении среднего значения эмоций, чтобы избежать исключений при суммировании.
-   - Добавлены проверки на тип данных, чтобы гарантировать корректность обрабатываемых значений.
+2.  **Improved Message Processing**:
+    *   Fixed errors in calculating average sentiment scores to avoid exceptions.
+    *   Added data type checks for more robust processing.
 
-3. **Извлечение контактной информации**:
-   - Добавлен функционал для извлечения email и телефонных номеров из сообщений.
+3.  **Contact Information Extraction**:
+    *   Added functionality to extract email addresses and phone numbers from messages.
 
-## Установка
+4.  **Code Refactoring & Stability**:
+    *   Significant portions of the codebase have been refactored for improved clarity, maintainability, and stability.
+    *   Enhanced error handling for NLTK resource downloads and configuration file management.
+    *   Improved UI flow and user feedback in the web interface.
 
-1. Клонируйте репозиторий:
+## Interpreting Sentiment Scores
 
-   ```bash
-   git clone https://github.com/krakodjaba/TelAnalysis.git
-   ```
+The sentiment analysis uses VaderSentiment, which provides a compound score:
+*   **Positive sentiment:** compound score >= 0.05
+*   **Neutral sentiment:** compound score > -0.05 and < 0.05
+*   **Negative sentiment:** compound score <= -0.05
 
-2. Установите зависимости:
+The compound score is a normalized, weighted composite score ranging from -1 (most extreme negative) to +1 (most extreme positive).
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Installation
 
-## Запуск
+1.  Clone the repository:
 
-Запустите скрипт:
+    ```bash
+    git clone https://github.com/krakodjaba/TelAnalysis.git
+    ```
+
+2.  Install dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+    (Ensure you have Python 3.x installed.)
+
+## Usage
+
+Run the script from the project's root directory:
 
 ```bash
 python3 telanalysis.py
 ```
 
-## Контрибьюция
+The application will attempt to open in your default web browser at `http://127.0.0.1:9993`. If it doesn't open automatically, please navigate to this URL.
 
-Если вы хотите внести свой вклад, пожалуйста, создайте форк репозитория и отправьте пул-реквест.
+## Contributing
 
-## Донаты
+If you want to contribute, please fork the repository and submit a pull request.
 
-Если вам понравился проект и вы хотите поддержать его разработку, можете сделать донат на кофеек! ☕️
+## Donations
+
+If you liked the project and want to support its development, you can donate for a coffee! ☕️
 tg@e_isaevsan
 ```
       )  (
@@ -67,4 +84,4 @@ tg@e_isaevsan
     '-------'
 ```
 
-Спасибо за вашу поддержку! 
+Thank you for your support!
